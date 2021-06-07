@@ -1,6 +1,6 @@
 {
-  "vendor": "vtex",
-  "name": "product-availability",
+  "vendor": "vtexarg",
+  "name": "product-availability-gallery",
   "version": "0.1.0",
   "title": "Product Availability",
   "description": "Show different messages depending on your product available quantity",
@@ -8,15 +8,28 @@
   "builders": {
     "store": "0.x",
     "react": "3.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "node": "6.x",
+    "graphql": "1.x"
   },
   "mustUpdateAt": "2019-04-02",
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/catalog/*"
+      }
+    }
+  ],
   "dependencies": {
     "vtex.product-context": "0.x",
-    "vtex.css-handles": "1.x"
+    "vtex.css-handles": "1.x",
+    "vtex.search-graphql": "0.x",
+    "vtex.inventory-graphql": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

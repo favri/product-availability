@@ -1,12 +1,16 @@
 import React from 'react'
 import { useProduct } from 'vtex.product-context'
 import type { ProductTypes } from 'vtex.product-context'
+import { useRuntime } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
 import type { CssHandlesTypes } from 'vtex.css-handles'
 import { defineMessages } from 'react-intl'
+import { useQuery } from 'react-apollo'
 
 import ProductAvailability from './ProductAvailability'
 import { CssHandlesProvider } from './CssHandlesContext'
+// import {productReleaseDate, inventoryProduct} from '../queries/productReleaseDate.graphql'
+import inventoryProduct from '../queries/productReleaseDate.graphql'
 
 const messages = defineMessages({
   title: {
@@ -104,16 +108,32 @@ function ProductAvailabilityWrapper({
 }: Props) {
   const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
+  const runtime = useRuntime()
+  const seller = getFirstAvailableSeller(
+    productContextValue?.selectedItem?.sellers
+  )
 
+  // eslint-disable-next-line no-console
+  console.log('productContextValue', seller)
+  // eslint-disable-next-line no-console
+  console.log('runtime', runtime.account)
+
+  const { data, loading, error } = useQuery(inventoryProduct, {
+    variables: {
+      ID: productContextValue?.selectedItem?.itemId,
+      warehouseId: 'as-cd-nueva',
+    },
+    ssr: false,
+  })
+
+  // eslint-disable-next-line no-console
+  // console.log('data', data);
+  // console.log('error', error);
   if (!productContextValue) {
     return null
   }
 
-  const seller = getFirstAvailableSeller(
-    productContextValue.selectedItem?.sellers
-  )
-
-  const availableQuantity = seller?.commertialOffer.AvailableQuantity
+  const availableQuantity = data?.inventoryProduct?.quantity
 
   return (
     <CssHandlesProvider handles={handles} withModifiers={withModifiers}>

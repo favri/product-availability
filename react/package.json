@@ -3,16 +3,23 @@
     "test": "vtex-test-tools test"
   },
   "dependencies": {
+    "node-fetch": "^2.6.1",
     "react": "^17.0.1",
+    "react-apollo": "^3.1.5",
     "react-dom": "^17.0.1",
     "react-intl": "^5.12.3"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.4",
+    "@types/node-fetch": "^2.5.10",
+    "@vtex/api": "6.42.1",
     "@vtex/test-tools": "^3.1.0",
     "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@1.0.0/public/@types/vtex.css-handles",
-    "vtex.product-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.7/public/@types/vtex.product-context",
-    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.126.11/public/@types/vtex.render-runtime"
+    "vtex.inventory-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.inventory-graphql@0.16.0/public/@types/vtex.inventory-graphql",
+    "vtex.product-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.9/public/@types/vtex.product-context",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.128.4/public/@types/vtex.render-runtime",
+    "vtex.search-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.43.0/public/@types/vtex.search-graphql",
+    "vtexarg.product-availability-gallery": "https://development--kaluapoc.myvtex.com/_v/private/typings/linked/v1/vtexarg.product-availability-gallery@0.1.0+build1623075292/public/@types/vtexarg.product-availability-gallery"
   },
   "version": "0.1.0"
 }

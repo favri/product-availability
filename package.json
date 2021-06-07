@@ -1,5 +1,5 @@
 {
-  "name": "product-availability",
+  "name": "product-availability-gallery",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -25,6 +25,8 @@
     "husky": "^5.0.9",
     "lint-staged": "^10.1.1",
     "prettier": "^2.0.2",
-    "typescript": "^3.8.3"
+    "@vtex/api": "6.42.1",
+    "@vtex/test-tools": "^1.0.0",
+    "typescript": "3.9.7"
   }
 }
